@@ -4,7 +4,7 @@
   <title><![CDATA[erikalxq blog]]></title>
   <link href="http://erikalxq.github.io/atom.xml" rel="self"/>
   <link href="http://erikalxq.github.io/"/>
-  <updated>2015-05-25T23:46:35+08:00</updated>
+  <updated>2015-05-25T23:48:18+08:00</updated>
   <id>http://erikalxq.github.io/</id>
   <author>
     <name><![CDATA[erikalxq]]></name>
@@ -20,12 +20,18 @@
     <id>http://erikalxq.github.io/blog/2015/05/25/shell-command-chsh</id>
     <content type="html"><![CDATA[<p>更换系统当前shell，可以使用chsh命令。</p>
 
-<p>1、查看当前系统安装的shell类型：cat /etc/shells
-2、查看默认shell：echo $SHELL
-3、切换shell：chsh -s /bin/zsh
-4、查看当前shell的方法：
-    a、echo $0
-    b、echo $$，得到进程号；ps -ef | grep [进程号]</p>
+<p>1、查看当前系统安装的shell类型：cat /etc/shells</p>
+
+<p>2、查看默认shell：echo $SHELL</p>
+
+<p>3、切换shell：chsh -s /bin/zsh</p>
+
+<p>4、查看当前shell的方法：</p>
+
+<pre><code>a、echo $0
+
+b、echo $$，得到进程号；ps -ef | grep [进程号]
+</code></pre>
 ]]></content>
   </entry>
   

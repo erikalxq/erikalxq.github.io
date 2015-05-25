@@ -9,10 +9,7 @@
   <meta name="author" content="erikalxq">
 
   
-  <meta name="description" content="更换系统当前shell，可以使用chsh命令。 1、查看当前系统安装的shell类型：cat /etc/shells
-2、查看默认shell：echo $SHELL
-3、切换shell：chsh -s /bin/zsh
-4、查看当前shell的方法： a、echo $0 b、echo $$， &hellip;">
+  <meta name="description" content="更换系统当前shell，可以使用chsh命令。 1、查看当前系统安装的shell类型：cat /etc/shells 2、查看默认shell：echo $SHELL 3、切换shell：chsh -s /bin/zsh 4、查看当前shell的方法： a、echo $0 b、echo $$， &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -89,12 +86,18 @@
 
 <div class="entry-content"><p>更换系统当前shell，可以使用chsh命令。</p>
 
-<p>1、查看当前系统安装的shell类型：cat /etc/shells
-2、查看默认shell：echo $SHELL
-3、切换shell：chsh -s /bin/zsh
-4、查看当前shell的方法：
-    a、echo $0
-    b、echo $$，得到进程号；ps -ef | grep [进程号]</p>
+<p>1、查看当前系统安装的shell类型：cat /etc/shells</p>
+
+<p>2、查看默认shell：echo $SHELL</p>
+
+<p>3、切换shell：chsh -s /bin/zsh</p>
+
+<p>4、查看当前shell的方法：</p>
+
+<pre><code>a、echo $0
+
+b、echo $$，得到进程号；ps -ef | grep [进程号]
+</code></pre>
 </div>
 
 
