@@ -9,8 +9,11 @@
   <meta name="author" content="erikalxq">
 
   
-  <meta name="description" content="hello octopress
-">
+  <meta name="description" content="更换系统当前shell，可以使用chsh命令。
+1、查看当前系统安装的shell类型：cat /etc/shells
+2、查看默认shell：echo $SHELL
+3、切换shell：chsh -s /bin/zsh
+4、查看当前shell的方法： a、echo $0 b、echo $$， &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -72,6 +75,41 @@
       
   <header>
     
+      <h1 class="entry-title"><a href="/blog/2015/05/25/shell-command-chsh/">Shell Command - Chsh</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2015-05-25T23:28:15+08:00'><span class='date'><span class='date-month'>May</span> <span class='date-day'>25</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>11:28 pm</span></time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>更换系统当前shell，可以使用chsh命令。
+1、查看当前系统安装的shell类型：cat /etc/shells
+2、查看默认shell：echo $SHELL
+3、切换shell：chsh -s /bin/zsh
+4、查看当前shell的方法：
+    a、echo $0
+    b、echo $$，得到进程号；ps -ef | grep [进程号]</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
       <h1 class="entry-title"><a href="/blog/2015/05/24/hello-octopress/">Hello Octopress</a></h1>
     
     
@@ -107,6 +145,10 @@
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2015/05/25/shell-command-chsh/">Shell Command - Chsh</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2015/05/24/hello-octopress/">Hello Octopress</a>
