@@ -5,11 +5,13 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Shell Command - Chsh - erikalxq blog</title>
+  <title>Git SSH - erikalxq blog</title>
   <meta name="author" content="erikalxq">
 
   
-  <meta name="description" content="更换系统当前shell，可以使用chsh命令。 1、查看当前系统安装的shell类型：cat /etc/shells 2、查看默认shell：echo $SHELL 3、切换shell：chsh -s /bin/zsh 4、查看当前shell的方法： a、echo $0 b、echo $$， &hellip;">
+  <meta name="description" content="Git是可以使用SSH来控制用户访问有效性
+如何生成SSH呢？
+">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +20,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://erikalxq.github.io/blog/2015/05/25/shell-command-chsh/">
+  <link rel="canonical" href="http://erikalxq.github.io/blog/2015/05/30/git-ssh/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="erikalxq blog" type="application/atom+xml">
@@ -68,7 +70,7 @@
   
   <header>
     
-      <h1 class="entry-title">Shell Command - Chsh</h1>
+      <h1 class="entry-title">Git SSH</h1>
     
     
       <p class="meta">
@@ -77,27 +79,15 @@
 
 
 
-<time class='entry-date' datetime='2015-05-25T23:28:15+08:00'><span class='date'><span class='date-month'>May</span> <span class='date-day'>25</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>11:28 pm</span></time>
+<time class='entry-date' datetime='2015-05-30T22:47:46+08:00'><span class='date'><span class='date-month'>May</span> <span class='date-day'>30</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>10:47 pm</span></time>
         
       </p>
     
   </header>
 
 
-<div class="entry-content"><p>更换系统当前shell，可以使用chsh命令。</p>
-
-<p>1、查看当前系统安装的shell类型：cat /etc/shells</p>
-
-<p>2、查看默认shell：echo $SHELL</p>
-
-<p>3、切换shell：chsh -s /bin/zsh</p>
-
-<p>4、查看当前shell的方法：</p>
-
-<pre><code>a、echo $0
-
-b、echo $$，得到进程号；ps -ef | grep [进程号]
-</code></pre>
+<div class="entry-content"><p>Git是可以使用SSH来控制用户访问有效性
+如何生成SSH呢？</p>
 </div>
 
 
@@ -113,7 +103,7 @@ b、echo $$，得到进程号；ps -ef | grep [进程号]
 
 
 
-<time class='entry-date' datetime='2015-05-25T23:28:15+08:00'><span class='date'><span class='date-month'>May</span> <span class='date-day'>25</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>11:28 pm</span></time>
+<time class='entry-date' datetime='2015-05-30T22:47:46+08:00'><span class='date'><span class='date-month'>May</span> <span class='date-day'>30</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>10:47 pm</span></time>
       
 
 
@@ -128,10 +118,8 @@ b、echo $$，得到进程号；ps -ef | grep [进程号]
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2015/05/24/hello-octopress/" title="Previous Post: hello octopress">&laquo; hello octopress</a>
+        <a class="basic-alignment left" href="/blog/2015/05/25/shell-command-chsh/" title="Previous Post: shell command - chsh">&laquo; shell command - chsh</a>
       
-      
-        <a class="basic-alignment right" href="/blog/2015/05/30/git-ssh/" title="Next Post: Git SSH">Git SSH &raquo;</a>
       
     </p>
   </footer>

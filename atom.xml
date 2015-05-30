@@ -4,7 +4,7 @@
   <title><![CDATA[erikalxq blog]]></title>
   <link href="http://erikalxq.github.io/atom.xml" rel="self"/>
   <link href="http://erikalxq.github.io/"/>
-  <updated>2015-05-30T22:38:07+08:00</updated>
+  <updated>2015-05-30T22:51:05+08:00</updated>
   <id>http://erikalxq.github.io/</id>
   <author>
     <name><![CDATA[erikalxq]]></name>
@@ -12,6 +12,16 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Git SSH]]></title>
+    <link href="http://erikalxq.github.io/blog/2015/05/30/git-ssh/"/>
+    <updated>2015-05-30T22:47:46+08:00</updated>
+    <id>http://erikalxq.github.io/blog/2015/05/30/git-ssh</id>
+    <content type="html"><![CDATA[<p>Git是可以使用SSH来控制用户访问有效性
+如何生成SSH呢？</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Shell Command - Chsh]]></title>
