@@ -1,0 +1,10 @@
+---
+layout: post
+title: "Git SSH"
+date: 2015-05-30 22:47:46 +0800
+comments: true
+categories: 
+---
+Git是可以使用SSH来控制用户访问有效性
+如何生成SSH呢？
+
