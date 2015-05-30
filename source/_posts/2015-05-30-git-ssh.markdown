@@ -6,5 +6,57 @@ comments: true
 categories: 
 ---
 Git是可以使用SSH来控制用户访问有效性
-如何生成SSH呢？
 
+一、如何生成SSH呢？
+
+	首先设置git的用户：
+
+	git config --global user.name "name"
+
+	git config --global user.email "name@mail.com"
+
+	生成SSH密钥：
+
+	查看~/.ssh内是否已经有id _ rsa文件，有代表本地已经有密钥文件了，多服务器多SSH管理后续会提及
+
+	如果没有这些文件，则用以下命令，生成密钥文件：
+
+	ssh-keygen -t rsa -C “name@mail.com"
+
+	.ssh目录下会生成id _ rsa和id _ rsa.pub文件，其中前者为私钥，后者为公钥
+
+	如果使用的是github，则需要拷贝.pub文件的内容到github网站上的ssh设置
+
+	然后就可以访问github的项目
+	
+如果是自己设置的git服务器，需要将每个使用该git服务的用户将个人的.pub文件发给git管理员，然后执行以下命令添加用户访问权限：
+
+	最好建立一个git组，让后再添加一个git用户，并且添加到该组当中。
+	sudo adduser git
+	su git
+	cd ~
+	mkdir .ssh
+	在git用户新建一个.ssh的目录，将开发者的SSH公钥添加到git这个用户的authorizedi _ keys这个文件当中。如有zhangsan,lisi两个开发者。
+	cat /tmp/id _ rsa _ zhangsan.pub >> ~/.ssh/authorized _ keys
+	cat /tmp/id _ rsa _ lisi.pub >> ~/.ssh/authorized _ keys
+
+window下可以使用TortoiseGit自带的PuttyGen生成ppk文件,生成ppk需要之前生成的rsa文件(rsa文件是git服务器生成的，这样可以让开发都用同一个密钥和用户访问git服务器，就像我们现在辉腾的服务器)，这样windows用户可以直接在设置TortoiseGit时使用ppk密钥文件访问git服务器
+
+linux和mac，可以使用puttyGen将ppk文件转换为openssh格式文件，其实就是id _ rsa文件
+
+二、多用户访问多台git服务器
+设置~/.ssh/config文件：
+	Host github.com
+	HostName github.com
+	User user1
+	PreferredAuthentications publickey
+	IdentityFile ~/.ssh/id_rsa.user1
+
+	Host github.com
+	HostName github.com
+	User user2
+	PreferredAuthentications publickey
+	IdentityFile ~/.ssh/id_rsa.user2
+	
+三、SSH简单流程
+	密匙认证需要依靠密匙，首先创建一对密匙（包括公匙和密匙，并且用公匙加密的数据只能用密匙解密），并把公匙放到需要远程服务器上。这样当登录远程服务器时，客户端软件就会向服务器发出请求，请求用你的密匙进行认证。服务器收到请求之后，先在你在该服务器的宿主目录下寻找你的公匙，然后检查该公匙是否是合法，如果合法就用公匙加密一随机数（即所谓的challenge）并发送给客户端软件。客户端软件收到 “challenge”之后就用私匙解密再把它发送给服务器。因为用公匙加密的数据只能用密匙解密，服务器经过比较就可以知道该客户连接的合法性。
