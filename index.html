@@ -9,7 +9,7 @@
   <meta name="author" content="erikalxq">
 
   
-  <meta name="description" content="Git是可以使用SSH来控制用户访问有效性 一、如何生成SSH呢？ 首先设置git的用户： git config --global user.name "name" git config --global user.email "name@mail.com" 生成SSH密钥： 查看~/. &hellip;">
+  <meta name="description" content="nginx服务器配置网站各类资源的缓存 使用的模块为nginx_http_headers_module 其实就是在nginx的配置文件内，可以在http/sever／location这些模块下添加不同类型站点文件的缓存有效时间，配置值为：expires 实例： 如设置某文件夹内文件的缓存有效值： &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -65,6 +65,49 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2015/08/07/nginx-cache-control/">Nginx Cache-control</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2015-08-07T12:28:49+08:00'><span class='date'><span class='date-month'>Aug</span> <span class='date-day'>7</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>12:28 pm</span></time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>nginx服务器配置网站各类资源的缓存</p>
+
+<p>使用的模块为nginx_http_headers_module</p>
+
+<p>其实就是在nginx的配置文件内，可以在http/sever／location这些模块下添加不同类型站点文件的缓存有效时间，配置值为：expires</p>
+
+<p>实例：</p>
+
+<p>如设置某文件夹内文件的缓存有效值：
+location ~ ^/image/{
+    root /[image所在路径];
+    expires 1h; # m分钟\h小时\d天(也可以使用add_header Cache-Control 30d)
+}</p>
+
+<p>关于http缓存的参考知识：<a href="http://www.cnblogs.com/futan/archive/2013/04/21/cachehuancun.html">http://www.cnblogs.com/futan/archive/2013/04/21/cachehuancun.html</a></p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -234,6 +277,10 @@ b、echo $$，得到进程号；ps -ef | grep [进程号]
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2015/08/07/nginx-cache-control/">Nginx Cache-control</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2015/05/30/git-ssh/">Git SSH</a>

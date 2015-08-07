@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Shell Command - Chsh - erikalxq blog</title>
+  <title>Nginx Cache-control - erikalxq blog</title>
   <meta name="author" content="erikalxq">
 
   
-  <meta name="description" content="更换系统当前shell，可以使用chsh命令。 1、查看当前系统安装的shell类型：cat /etc/shells 2、查看默认shell：echo $SHELL 3、切换shell：chsh -s /bin/zsh 4、查看当前shell的方法： a、echo $0 b、echo $$， &hellip;">
+  <meta name="description" content="nginx服务器配置网站各类资源的缓存 使用的模块为nginx_http_headers_module 其实就是在nginx的配置文件内，可以在http/sever／location这些模块下添加不同类型站点文件的缓存有效时间，配置值为：expires 实例： 如设置某文件夹内文件的缓存有效值： &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://erikalxq.github.io/blog/2015/05/25/shell-command-chsh/">
+  <link rel="canonical" href="http://erikalxq.github.io/blog/2015/08/07/nginx-cache-control/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="erikalxq blog" type="application/atom+xml">
@@ -68,7 +68,7 @@
   
   <header>
     
-      <h1 class="entry-title">Shell Command - Chsh</h1>
+      <h1 class="entry-title">Nginx Cache-control</h1>
     
     
       <p class="meta">
@@ -77,27 +77,28 @@
 
 
 
-<time class='entry-date' datetime='2015-05-25T23:28:15+08:00'><span class='date'><span class='date-month'>May</span> <span class='date-day'>25</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>11:28 pm</span></time>
+<time class='entry-date' datetime='2015-08-07T12:28:49+08:00'><span class='date'><span class='date-month'>Aug</span> <span class='date-day'>7</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>12:28 pm</span></time>
         
       </p>
     
   </header>
 
 
-<div class="entry-content"><p>更换系统当前shell，可以使用chsh命令。</p>
+<div class="entry-content"><p>nginx服务器配置网站各类资源的缓存</p>
 
-<p>1、查看当前系统安装的shell类型：cat /etc/shells</p>
+<p>使用的模块为nginx_http_headers_module</p>
 
-<p>2、查看默认shell：echo $SHELL</p>
+<p>其实就是在nginx的配置文件内，可以在http/sever／location这些模块下添加不同类型站点文件的缓存有效时间，配置值为：expires</p>
 
-<p>3、切换shell：chsh -s /bin/zsh</p>
+<p>实例：</p>
 
-<p>4、查看当前shell的方法：</p>
+<p>如设置某文件夹内文件的缓存有效值：
+location ~ ^/image/{
+    root /[image所在路径];
+    expires 1h; # m分钟\h小时\d天(也可以使用add_header Cache-Control 30d)
+}</p>
 
-<pre><code>a、echo $0
-
-b、echo $$，得到进程号；ps -ef | grep [进程号]
-</code></pre>
+<p>关于http缓存的参考知识：<a href="http://www.cnblogs.com/futan/archive/2013/04/21/cachehuancun.html">http://www.cnblogs.com/futan/archive/2013/04/21/cachehuancun.html</a></p>
 </div>
 
 
@@ -113,7 +114,7 @@ b、echo $$，得到进程号；ps -ef | grep [进程号]
 
 
 
-<time class='entry-date' datetime='2015-05-25T23:28:15+08:00'><span class='date'><span class='date-month'>May</span> <span class='date-day'>25</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>11:28 pm</span></time>
+<time class='entry-date' datetime='2015-08-07T12:28:49+08:00'><span class='date'><span class='date-month'>Aug</span> <span class='date-day'>7</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>12:28 pm</span></time>
       
 
 
@@ -128,10 +129,8 @@ b、echo $$，得到进程号；ps -ef | grep [进程号]
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2015/05/24/hello-octopress/" title="Previous Post: hello octopress">&laquo; hello octopress</a>
+        <a class="basic-alignment left" href="/blog/2015/05/30/git-ssh/" title="Previous Post: Git SSH">&laquo; Git SSH</a>
       
-      
-        <a class="basic-alignment right" href="/blog/2015/05/30/git-ssh/" title="Next Post: Git SSH">Git SSH &raquo;</a>
       
     </p>
   </footer>

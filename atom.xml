@@ -4,7 +4,7 @@
   <title><![CDATA[erikalxq blog]]></title>
   <link href="http://erikalxq.github.io/atom.xml" rel="self"/>
   <link href="http://erikalxq.github.io/"/>
-  <updated>2015-05-30T23:29:38+08:00</updated>
+  <updated>2015-08-07T12:37:49+08:00</updated>
   <id>http://erikalxq.github.io/</id>
   <author>
     <name><![CDATA[erikalxq]]></name>
@@ -12,6 +12,29 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Nginx Cache-control]]></title>
+    <link href="http://erikalxq.github.io/blog/2015/08/07/nginx-cache-control/"/>
+    <updated>2015-08-07T12:28:49+08:00</updated>
+    <id>http://erikalxq.github.io/blog/2015/08/07/nginx-cache-control</id>
+    <content type="html"><![CDATA[<p>nginx服务器配置网站各类资源的缓存</p>
+
+<p>使用的模块为nginx_http_headers_module</p>
+
+<p>其实就是在nginx的配置文件内，可以在http/sever／location这些模块下添加不同类型站点文件的缓存有效时间，配置值为：expires</p>
+
+<p>实例：</p>
+
+<p>如设置某文件夹内文件的缓存有效值：
+location ~ ^/image/{
+    root /[image所在路径];
+    expires 1h; # m分钟\h小时\d天(也可以使用add_header Cache-Control 30d)
+}</p>
+
+<p>关于http缓存的参考知识：<a href="http://www.cnblogs.com/futan/archive/2013/04/21/cachehuancun.html">http://www.cnblogs.com/futan/archive/2013/04/21/cachehuancun.html</a></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Git SSH]]></title>
