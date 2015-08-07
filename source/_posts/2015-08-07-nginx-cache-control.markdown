@@ -15,8 +15,11 @@ nginx服务器配置网站各类资源的缓存
 
 如设置某文件夹内文件的缓存有效值：
 location ~ ^/image/{
+
 	root /[image所在路径];
+	
 	expires 1h;	# m分钟\h小时\d天(也可以使用add_header Cache-Control 30d)
+
 }
 
 关于http缓存的参考知识：http://www.cnblogs.com/futan/archive/2013/04/21/cachehuancun.html
