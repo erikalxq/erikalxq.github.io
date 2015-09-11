@@ -9,7 +9,7 @@
   <meta name="author" content="erikalxq">
 
   
-  <meta name="description" content="nginx服务器配置网站各类资源的缓存 使用的模块为nginx_http_headers_module 其实就是在nginx的配置文件内，可以在http/sever／location这些模块下添加不同类型站点文件的缓存有效时间，配置值为：expires 实例： 如设置某文件夹内文件的缓存有效值： &hellip;">
+  <meta name="description" content="对于用vc＋＋写的windows服务，使用installutil来安装服务会出现一些问题：clrcall，工程属性为pure /clr，改为/clr后部署失败；但不修改这个属性的话，在使用线程函数又会报错：clrcall、__stddll无法确认； 所以换成sc create 方式来安装服务； &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -65,6 +65,48 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2015/09/11/windows-service/">Windows Service</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2015-09-11T14:08:15+08:00'><span class='date'><span class='date-month'>Sep</span> <span class='date-day'>11</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>2:08 pm</span></time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>对于用vc＋＋写的windows服务，使用installutil来安装服务会出现一些问题：<strong>clrcall，工程属性为pure /clr，改为/clr后部署失败；但不修改这个属性的话，在使用线程函数又会报错：</strong>clrcall、__stddll无法确认；</p>
+
+<p>所以换成sc create 方式来安装服务；</p>
+
+<p>安装服务：
+sc create serviceName binpath= &ldquo;fullpath&rdquo;</p>
+
+<p>删除服务：
+需要先退出服务管理器，否则会出现服务已被标记为删除的情况
+sc delete serviceName</p>
+
+<p>sc start serviceName</p>
+
+<p>sc stop serviceName</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -281,6 +323,10 @@ b、echo $$，得到进程号；ps -ef | grep [进程号]
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2015/09/11/windows-service/">Windows Service</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2015/08/07/nginx-cache-control/">Nginx Cache-control</a>

@@ -4,7 +4,7 @@
   <title><![CDATA[erikalxq blog]]></title>
   <link href="http://erikalxq.github.io/atom.xml" rel="self"/>
   <link href="http://erikalxq.github.io/"/>
-  <updated>2015-08-07T12:40:18+08:00</updated>
+  <updated>2015-09-11T14:13:51+08:00</updated>
   <id>http://erikalxq.github.io/</id>
   <author>
     <name><![CDATA[erikalxq]]></name>
@@ -12,6 +12,28 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Windows Service]]></title>
+    <link href="http://erikalxq.github.io/blog/2015/09/11/windows-service/"/>
+    <updated>2015-09-11T14:08:15+08:00</updated>
+    <id>http://erikalxq.github.io/blog/2015/09/11/windows-service</id>
+    <content type="html"><![CDATA[<p>对于用vc＋＋写的windows服务，使用installutil来安装服务会出现一些问题：<strong>clrcall，工程属性为pure /clr，改为/clr后部署失败；但不修改这个属性的话，在使用线程函数又会报错：</strong>clrcall、__stddll无法确认；</p>
+
+<p>所以换成sc create 方式来安装服务；</p>
+
+<p>安装服务：
+sc create serviceName binpath= &ldquo;fullpath&rdquo;</p>
+
+<p>删除服务：
+需要先退出服务管理器，否则会出现服务已被标记为删除的情况
+sc delete serviceName</p>
+
+<p>sc start serviceName</p>
+
+<p>sc stop serviceName</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Nginx Cache-control]]></title>
