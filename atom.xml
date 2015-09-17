@@ -4,7 +4,7 @@
   <title><![CDATA[erikalxq blog]]></title>
   <link href="http://erikalxq.github.io/atom.xml" rel="self"/>
   <link href="http://erikalxq.github.io/"/>
-  <updated>2015-09-11T14:13:51+08:00</updated>
+  <updated>2015-09-17T14:29:57+08:00</updated>
   <id>http://erikalxq.github.io/</id>
   <author>
     <name><![CDATA[erikalxq]]></name>
@@ -12,6 +12,36 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Hadoop Install on MacOSX]]></title>
+    <link href="http://erikalxq.github.io/blog/2015/09/17/hadoop-install-on-macosx/"/>
+    <updated>2015-09-17T14:19:48+08:00</updated>
+    <id>http://erikalxq.github.io/blog/2015/09/17/hadoop-install-on-macosx</id>
+    <content type="html"><![CDATA[<p>hadoop版本下载的是最新的2.7.1，支持jdk7+，不再支持jdk6+
+<a href="http://hadoop.apache.org/releases.html#06+July%2C+2015%3A+Release+2.7.1+%28stable%29+available">http://hadoop.apache.org/releases.html#06+July%2C+2015%3A+Release+2.7.1+%28stable%29+available</a></p>
+
+<p>jdk下载的是最新的jdk8u60版本
+<a href="http://www.oracle.com/technetwork/java/javase/downloads/index-jsp-138363.html">http://www.oracle.com/technetwork/java/javase/downloads/index-jsp-138363.html</a></p>
+
+<p>默认的mac自带jdk路径为：/System/Library/Frameworks/JavaVM.framework/Versions</p>
+
+<p>安装的jdk路径在：/Library/Java/JavaVirtualMachines/jdk1.8.0 60.jdk/Contents/Home</p>
+
+<p>所以需要将环境变量修改：</p>
+
+<p>export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0 60.jdk/Contents/Home</p>
+
+<p>同时解压hadoop，修改环境变量：</p>
+
+<p>export HADOOP_INSTALL=压缩包路径;
+export PATH=$PATH:$HADOOP_INSTALL/bin</p>
+
+<p>重启终端，输入hadoop version，应该就可以看到hadoop的版本号了;</p>
+
+<p>我使用的是zsh终端，所以修改的是～/.zshrc文件的环境变量</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Windows Service]]></title>

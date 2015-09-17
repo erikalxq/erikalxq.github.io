@@ -9,7 +9,8 @@
   <meta name="author" content="erikalxq">
 
   
-  <meta name="description" content="对于用vc＋＋写的windows服务，使用installutil来安装服务会出现一些问题：clrcall，工程属性为pure /clr，改为/clr后部署失败；但不修改这个属性的话，在使用线程函数又会报错：clrcall、__stddll无法确认； 所以换成sc create 方式来安装服务； &hellip;">
+  <meta name="description" content="hadoop版本下载的是最新的2.7.1，支持jdk7+，不再支持jdk6+
+http://hadoop.apache.org/releases.html#06+July%2C+2015%3A+Release+2.7.1+%28stable%29+available &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -65,6 +66,56 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2015/09/17/hadoop-install-on-macosx/">Hadoop Install on MacOSX</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2015-09-17T14:19:48+08:00'><span class='date'><span class='date-month'>Sep</span> <span class='date-day'>17</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>2:19 pm</span></time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>hadoop版本下载的是最新的2.7.1，支持jdk7+，不再支持jdk6+
+<a href="http://hadoop.apache.org/releases.html#06+July%2C+2015%3A+Release+2.7.1+%28stable%29+available">http://hadoop.apache.org/releases.html#06+July%2C+2015%3A+Release+2.7.1+%28stable%29+available</a></p>
+
+<p>jdk下载的是最新的jdk8u60版本
+<a href="http://www.oracle.com/technetwork/java/javase/downloads/index-jsp-138363.html">http://www.oracle.com/technetwork/java/javase/downloads/index-jsp-138363.html</a></p>
+
+<p>默认的mac自带jdk路径为：/System/Library/Frameworks/JavaVM.framework/Versions</p>
+
+<p>安装的jdk路径在：/Library/Java/JavaVirtualMachines/jdk1.8.0 60.jdk/Contents/Home</p>
+
+<p>所以需要将环境变量修改：</p>
+
+<p>export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0 60.jdk/Contents/Home</p>
+
+<p>同时解压hadoop，修改环境变量：</p>
+
+<p>export HADOOP_INSTALL=压缩包路径;
+export PATH=$PATH:$HADOOP_INSTALL/bin</p>
+
+<p>重启终端，输入hadoop version，应该就可以看到hadoop的版本号了;</p>
+
+<p>我使用的是zsh终端，所以修改的是～/.zshrc文件的环境变量</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -325,6 +376,10 @@ b、echo $$，得到进程号；ps -ef | grep [进程号]
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2015/09/17/hadoop-install-on-macosx/">Hadoop Install on MacOSX</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2015/09/11/windows-service/">Windows Service</a>
       </li>
     
@@ -338,10 +393,6 @@ b、echo $$，得到进程号；ps -ef | grep [进程号]
     
       <li class="post">
         <a href="/blog/2015/05/25/shell-command-chsh/">Shell Command - Chsh</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2015/05/24/hello-octopress/">Hello Octopress</a>
       </li>
     
   </ul>

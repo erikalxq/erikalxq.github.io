@@ -5,15 +5,12 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Blog Archive - erikalxq blog</title>
+  <title>Hadoop Install on MacOSX - erikalxq blog</title>
   <meta name="author" content="erikalxq">
 
   
-  <meta name="description" content="Blog Archive 2015 Hadoop Install on MacOSX
-Sep 17 2015 Windows Service
-Sep 11 2015 Nginx Cache-control
-Aug 07 2015 Git SSH
-May 30 2015 Shell Command &hellip;">
+  <meta name="description" content="hadoop版本下载的是最新的2.7.1，支持jdk7+，不再支持jdk6+
+http://hadoop.apache.org/releases.html#06+July%2C+2015%3A+Release+2.7.1+%28stable%29+available &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -22,7 +19,7 @@ May 30 2015 Shell Command &hellip;">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://erikalxq.github.io/blog/archives/">
+  <link rel="canonical" href="http://erikalxq.github.io/blog/2015/09/17/hadoop-install-on-macosx/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="erikalxq blog" type="application/atom+xml">
@@ -68,81 +65,83 @@ May 30 2015 Shell Command &hellip;">
   <div id="main">
     <div id="content">
       <div>
-<article role="article">
+<article class="hentry" role="article">
   
   <header>
-    <h1 class="entry-title">Blog Archive</h1>
+    
+      <h1 class="entry-title">Hadoop Install on MacOSX</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2015-09-17T14:19:48+08:00'><span class='date'><span class='date-month'>Sep</span> <span class='date-day'>17</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>2:19 pm</span></time>
+        
+      </p>
     
   </header>
-  
-  <div id="blog-archives">
 
 
+<div class="entry-content"><p>hadoop版本下载的是最新的2.7.1，支持jdk7+，不再支持jdk6+
+<a href="http://hadoop.apache.org/releases.html#06+July%2C+2015%3A+Release+2.7.1+%28stable%29+available">http://hadoop.apache.org/releases.html#06+July%2C+2015%3A+Release+2.7.1+%28stable%29+available</a></p>
 
-  
-  <h2>2015</h2>
+<p>jdk下载的是最新的jdk8u60版本
+<a href="http://www.oracle.com/technetwork/java/javase/downloads/index-jsp-138363.html">http://www.oracle.com/technetwork/java/javase/downloads/index-jsp-138363.html</a></p>
 
-<article>
-  
-<h1><a href="/blog/2015/09/17/hadoop-install-on-macosx/">Hadoop Install on MacOSX</a></h1>
-<time datetime="2015-09-17T14:19:48+08:00" pubdate><span class='month'>Sep</span> <span class='day'>17</span> <span class='year'>2015</span></time>
+<p>默认的mac自带jdk路径为：/System/Library/Frameworks/JavaVM.framework/Versions</p>
 
+<p>安装的jdk路径在：/Library/Java/JavaVirtualMachines/jdk1.8.0 60.jdk/Contents/Home</p>
 
-</article>
+<p>所以需要将环境变量修改：</p>
 
+<p>export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0 60.jdk/Contents/Home</p>
 
+<p>同时解压hadoop，修改环境变量：</p>
 
-<article>
-  
-<h1><a href="/blog/2015/09/11/windows-service/">Windows Service</a></h1>
-<time datetime="2015-09-11T14:08:15+08:00" pubdate><span class='month'>Sep</span> <span class='day'>11</span> <span class='year'>2015</span></time>
+<p>export HADOOP_INSTALL=压缩包路径;
+export PATH=$PATH:$HADOOP_INSTALL/bin</p>
 
+<p>重启终端，输入hadoop version，应该就可以看到hadoop的版本号了;</p>
 
-</article>
-
-
-
-<article>
-  
-<h1><a href="/blog/2015/08/07/nginx-cache-control/">Nginx Cache-control</a></h1>
-<time datetime="2015-08-07T12:28:49+08:00" pubdate><span class='month'>Aug</span> <span class='day'>07</span> <span class='year'>2015</span></time>
-
-
-</article>
-
-
-
-<article>
-  
-<h1><a href="/blog/2015/05/30/git-ssh/">Git SSH</a></h1>
-<time datetime="2015-05-30T22:47:46+08:00" pubdate><span class='month'>May</span> <span class='day'>30</span> <span class='year'>2015</span></time>
-
-
-</article>
-
-
-
-<article>
-  
-<h1><a href="/blog/2015/05/25/shell-command-chsh/">Shell Command - Chsh</a></h1>
-<time datetime="2015-05-25T23:28:15+08:00" pubdate><span class='month'>May</span> <span class='day'>25</span> <span class='year'>2015</span></time>
-
-
-</article>
-
-
-
-<article>
-  
-<h1><a href="/blog/2015/05/24/hello-octopress/">Hello Octopress</a></h1>
-<time datetime="2015-05-24T10:06:15+08:00" pubdate><span class='month'>May</span> <span class='day'>24</span> <span class='year'>2015</span></time>
-
-
-</article>
-
+<p>我使用的是zsh终端，所以修改的是～/.zshrc文件的环境变量</p>
 </div>
 
+
+  <footer>
+    <p class="meta">
+      
   
+
+<span class="byline author vcard">Posted by <span class="fn">erikalxq</span></span>
+
+      
+
+
+
+
+<time class='entry-date' datetime='2015-09-17T14:19:48+08:00'><span class='date'><span class='date-month'>Sep</span> <span class='date-day'>17</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>2:19 pm</span></time>
+      
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2015/09/11/windows-service/" title="Previous Post: windows service">&laquo; windows service</a>
+      
+      
+    </p>
+  </footer>
 </article>
 
 </div>
