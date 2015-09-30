@@ -1,0 +1,244 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Git SSH - erikalxq blog</title>
+  <meta name="author" content="erikalxq">
+
+  
+  <meta name="description" content="Git是可以使用SSH来控制用户访问有效性 一、如何生成SSH呢？ 首先设置git的用户： git config --global user.name "name" git config --global user.email "name@mail.com" 生成SSH密钥： 查看~/. &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://erikalxq.github.io/blog/2015/05/30/git-ssh/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="erikalxq blog" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <!--<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>-->
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="/javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<!--<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">-->
+<!--<link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">-->
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">erikalxq blog</a></h1>
+  
+    <h2>hacker place</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://www.google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="sitesearch" value="erikalxq.github.io">
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Git SSH</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2015-05-30T22:47:46+08:00'><span class='date'><span class='date-month'>May</span> <span class='date-day'>30</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>10:47 pm</span></time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>Git是可以使用SSH来控制用户访问有效性</p>
+
+<p>一、如何生成SSH呢？</p>
+
+<pre><code>首先设置git的用户：
+
+git config --global user.name "name"
+
+git config --global user.email "name@mail.com"
+
+生成SSH密钥：
+
+查看~/.ssh内是否已经有id _ rsa文件，有代表本地已经有密钥文件了，多服务器多SSH管理后续会提及
+
+如果没有这些文件，则用以下命令，生成密钥文件：
+
+ssh-keygen -t rsa -C “name@mail.com"
+
+.ssh目录下会生成id _ rsa和id _ rsa.pub文件，其中前者为私钥，后者为公钥
+
+如果使用的是github，则需要拷贝.pub文件的内容到github网站上的ssh设置
+
+然后就可以访问github的项目
+</code></pre>
+
+<p>如果是自己设置的git服务器，需要将每个使用该git服务的用户将个人的.pub文件发给git管理员，然后执行以下命令添加用户访问权限：</p>
+
+<pre><code>最好建立一个git组，让后再添加一个git用户，并且添加到该组当中。
+sudo adduser git
+su git
+cd ~
+mkdir .ssh
+在git用户新建一个.ssh的目录，将开发者的SSH公钥添加到git这个用户的authorizedi _ keys这个文件当中。如有zhangsan,lisi两个开发者。
+cat /tmp/id _ rsa _ zhangsan.pub &gt;&gt; ~/.ssh/authorized _ keys
+cat /tmp/id _ rsa _ lisi.pub &gt;&gt; ~/.ssh/authorized _ keys
+</code></pre>
+
+<p>window下可以使用TortoiseGit自带的PuttyGen生成ppk文件,生成ppk需要之前生成的rsa文件(rsa文件是git服务器生成的，这样可以让开发都用同一个密钥和用户访问git服务器，就像我们现在辉腾的服务器)，这样windows用户可以直接在设置TortoiseGit时使用ppk密钥文件访问git服务器</p>
+
+<p>linux和mac，可以使用puttyGen将ppk文件转换为openssh格式文件，其实就是id _ rsa文件</p>
+
+<p>二、多用户访问多台git服务器
+设置~/.ssh/config文件：
+    Host github.com
+    HostName github.com
+    User user1
+    PreferredAuthentications publickey
+    IdentityFile ~/.ssh/id_rsa.user1</p>
+
+<pre><code>Host github.com
+HostName github.com
+User user2
+PreferredAuthentications publickey
+IdentityFile ~/.ssh/id_rsa.user2
+</code></pre>
+
+<p>三、SSH简单流程
+    密匙认证需要依靠密匙，首先创建一对密匙（包括公匙和密匙，并且用公匙加密的数据只能用密匙解密），并把公匙放到需要远程服务器上。这样当登录远程服务器时，客户端软件就会向服务器发出请求，请求用你的密匙进行认证。服务器收到请求之后，先在你在该服务器的宿主目录下寻找你的公匙，然后检查该公匙是否是合法，如果合法就用公匙加密一随机数（即所谓的challenge）并发送给客户端软件。客户端软件收到 “challenge”之后就用私匙解密再把它发送给服务器。因为用公匙加密的数据只能用密匙解密，服务器经过比较就可以知道该客户连接的合法性。</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">erikalxq</span></span>
+
+      
+
+
+
+
+<time class='entry-date' datetime='2015-05-30T22:47:46+08:00'><span class='date'><span class='date-month'>May</span> <span class='date-day'>30</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>10:47 pm</span></time>
+      
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2015/05/25/shell-command-chsh/" title="Previous Post: shell command - chsh">&laquo; shell command - chsh</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2015/08/07/nginx-cache-control/" title="Next Post: nginx cache-control">nginx cache-control &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2015/09/17/hadoop-install-on-macosx/">Hadoop Install on MacOSX</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/09/11/windows-service/">Windows Service</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/08/07/nginx-cache-control/">Nginx Cache-control</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/05/30/git-ssh/">Git SSH</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/05/25/shell-command-chsh/">Shell Command - Chsh</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2015 - erikalxq -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

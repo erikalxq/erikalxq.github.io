@@ -1,0 +1,429 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>erikalxq blog</title>
+  <meta name="author" content="erikalxq">
+
+  
+  <meta name="description" content="hadoop版本下载的是最新的2.7.1，支持jdk7+，不再支持jdk6+
+http://hadoop.apache.org/releases.html#06+July%2C+2015%3A+Release+2.7.1+%28stable%29+available &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://erikalxq.github.io/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="erikalxq blog" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <!--<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>-->
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="/javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<!--<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">-->
+<!--<link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">-->
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">erikalxq blog</a></h1>
+  
+    <h2>hacker place</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://www.google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="sitesearch" value="erikalxq.github.io">
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div class="blog-index">
+  
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2015/09/17/hadoop-install-on-macosx/">Hadoop Install on MacOSX</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2015-09-17T14:19:48+08:00'><span class='date'><span class='date-month'>Sep</span> <span class='date-day'>17</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>2:19 pm</span></time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>hadoop版本下载的是最新的2.7.1，支持jdk7+，不再支持jdk6+
+<a href="http://hadoop.apache.org/releases.html#06+July%2C+2015%3A+Release+2.7.1+%28stable%29+available">http://hadoop.apache.org/releases.html#06+July%2C+2015%3A+Release+2.7.1+%28stable%29+available</a></p>
+
+<p>jdk下载的是最新的jdk8u60版本
+<a href="http://www.oracle.com/technetwork/java/javase/downloads/index-jsp-138363.html">http://www.oracle.com/technetwork/java/javase/downloads/index-jsp-138363.html</a></p>
+
+<p>默认的mac自带jdk路径为：/System/Library/Frameworks/JavaVM.framework/Versions</p>
+
+<p>安装的jdk路径在：/Library/Java/JavaVirtualMachines/jdk1.8.0 60.jdk/Contents/Home</p>
+
+<p>所以需要将环境变量修改：</p>
+
+<p>export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0 60.jdk/Contents/Home</p>
+
+<p>同时解压hadoop，修改环境变量：</p>
+
+<p>export HADOOP_INSTALL=压缩包路径;
+export PATH=$PATH:$HADOOP_INSTALL/bin</p>
+
+<p>重启终端，输入hadoop version，应该就可以看到hadoop的版本号了;</p>
+
+<p>我使用的是zsh终端，所以修改的是～/.zshrc文件的环境变量</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2015/09/11/windows-service/">Windows Service</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2015-09-11T14:08:15+08:00'><span class='date'><span class='date-month'>Sep</span> <span class='date-day'>11</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>2:08 pm</span></time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>对于用vc＋＋写的windows服务，使用installutil来安装服务会出现一些问题：<strong>clrcall，工程属性为pure /clr，改为/clr后部署失败；但不修改这个属性的话，在使用线程函数又会报错：</strong>clrcall、__stddll无法确认；</p>
+
+<p>所以换成sc create 方式来安装服务；</p>
+
+<p>安装服务：
+sc create serviceName binpath= &ldquo;fullpath&rdquo;</p>
+
+<p>删除服务：
+需要先退出服务管理器，否则会出现服务已被标记为删除的情况
+sc delete serviceName</p>
+
+<p>sc start serviceName</p>
+
+<p>sc stop serviceName</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2015/08/07/nginx-cache-control/">Nginx Cache-control</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2015-08-07T12:28:49+08:00'><span class='date'><span class='date-month'>Aug</span> <span class='date-day'>7</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>12:28 pm</span></time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>nginx服务器配置网站各类资源的缓存</p>
+
+<p>使用的模块为nginx_http_headers_module</p>
+
+<p>其实就是在nginx的配置文件内，可以在http/sever／location这些模块下添加不同类型站点文件的缓存有效时间，配置值为：expires</p>
+
+<p>实例：</p>
+
+<p>如设置某文件夹内文件的缓存有效值：
+location ~ ^/image/{</p>
+
+<pre><code>root /[image所在路径];
+
+expires 1h; # m分钟\h小时\d天(也可以使用add_header Cache-Control 30d)
+</code></pre>
+
+<p>}</p>
+
+<p>关于http缓存的参考知识：<a href="http://www.cnblogs.com/futan/archive/2013/04/21/cachehuancun.html">http://www.cnblogs.com/futan/archive/2013/04/21/cachehuancun.html</a></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2015/05/30/git-ssh/">Git SSH</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2015-05-30T22:47:46+08:00'><span class='date'><span class='date-month'>May</span> <span class='date-day'>30</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>10:47 pm</span></time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Git是可以使用SSH来控制用户访问有效性</p>
+
+<p>一、如何生成SSH呢？</p>
+
+<pre><code>首先设置git的用户：
+
+git config --global user.name "name"
+
+git config --global user.email "name@mail.com"
+
+生成SSH密钥：
+
+查看~/.ssh内是否已经有id _ rsa文件，有代表本地已经有密钥文件了，多服务器多SSH管理后续会提及
+
+如果没有这些文件，则用以下命令，生成密钥文件：
+
+ssh-keygen -t rsa -C “name@mail.com"
+
+.ssh目录下会生成id _ rsa和id _ rsa.pub文件，其中前者为私钥，后者为公钥
+
+如果使用的是github，则需要拷贝.pub文件的内容到github网站上的ssh设置
+
+然后就可以访问github的项目
+</code></pre>
+
+<p>如果是自己设置的git服务器，需要将每个使用该git服务的用户将个人的.pub文件发给git管理员，然后执行以下命令添加用户访问权限：</p>
+
+<pre><code>最好建立一个git组，让后再添加一个git用户，并且添加到该组当中。
+sudo adduser git
+su git
+cd ~
+mkdir .ssh
+在git用户新建一个.ssh的目录，将开发者的SSH公钥添加到git这个用户的authorizedi _ keys这个文件当中。如有zhangsan,lisi两个开发者。
+cat /tmp/id _ rsa _ zhangsan.pub &gt;&gt; ~/.ssh/authorized _ keys
+cat /tmp/id _ rsa _ lisi.pub &gt;&gt; ~/.ssh/authorized _ keys
+</code></pre>
+
+<p>window下可以使用TortoiseGit自带的PuttyGen生成ppk文件,生成ppk需要之前生成的rsa文件(rsa文件是git服务器生成的，这样可以让开发都用同一个密钥和用户访问git服务器，就像我们现在辉腾的服务器)，这样windows用户可以直接在设置TortoiseGit时使用ppk密钥文件访问git服务器</p>
+
+<p>linux和mac，可以使用puttyGen将ppk文件转换为openssh格式文件，其实就是id _ rsa文件</p>
+
+<p>二、多用户访问多台git服务器
+设置~/.ssh/config文件：
+    Host github.com
+    HostName github.com
+    User user1
+    PreferredAuthentications publickey
+    IdentityFile ~/.ssh/id_rsa.user1</p>
+
+<pre><code>Host github.com
+HostName github.com
+User user2
+PreferredAuthentications publickey
+IdentityFile ~/.ssh/id_rsa.user2
+</code></pre>
+
+<p>三、SSH简单流程
+    密匙认证需要依靠密匙，首先创建一对密匙（包括公匙和密匙，并且用公匙加密的数据只能用密匙解密），并把公匙放到需要远程服务器上。这样当登录远程服务器时，客户端软件就会向服务器发出请求，请求用你的密匙进行认证。服务器收到请求之后，先在你在该服务器的宿主目录下寻找你的公匙，然后检查该公匙是否是合法，如果合法就用公匙加密一随机数（即所谓的challenge）并发送给客户端软件。客户端软件收到 “challenge”之后就用私匙解密再把它发送给服务器。因为用公匙加密的数据只能用密匙解密，服务器经过比较就可以知道该客户连接的合法性。</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2015/05/25/shell-command-chsh/">Shell Command - Chsh</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2015-05-25T23:28:15+08:00'><span class='date'><span class='date-month'>May</span> <span class='date-day'>25</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>11:28 pm</span></time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>更换系统当前shell，可以使用chsh命令。</p>
+
+<p>1、查看当前系统安装的shell类型：cat /etc/shells</p>
+
+<p>2、查看默认shell：echo $SHELL</p>
+
+<p>3、切换shell：chsh -s /bin/zsh</p>
+
+<p>4、查看当前shell的方法：</p>
+
+<pre><code>a、echo $0
+
+b、echo $$，得到进程号；ps -ef | grep [进程号]
+</code></pre>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2015/05/24/hello-octopress/">Hello Octopress</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2015-05-24T10:06:15+08:00'><span class='date'><span class='date-month'>May</span> <span class='date-day'>24</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>10:06 am</span></time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>hello octopress</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  <div class="pagination">
+    
+    <a href="/blog/archives">Blog Archives</a>
+    
+  </div>
+</div>
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2015/09/17/hadoop-install-on-macosx/">Hadoop Install on MacOSX</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/09/11/windows-service/">Windows Service</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/08/07/nginx-cache-control/">Nginx Cache-control</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/05/30/git-ssh/">Git SSH</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/05/25/shell-command-chsh/">Shell Command - Chsh</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+  
+</aside>
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2015 - erikalxq -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
